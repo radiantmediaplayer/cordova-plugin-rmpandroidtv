@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-rmpandroidtv",
   "version": "1.0.0",
-  "description": "Cordova plugin to prepare app for Android TV",
+  "description": "Cordova plugin to prepare app for Android TV while using Radiant Media Player",
   "cordova": {
     "id": "cordova-plugin-rmpandroidtv",
     "platforms": [
