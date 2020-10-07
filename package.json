@@ -1,0 +1,38 @@
+{
+  "name": "cordova-plugin-rmpandroidtv",
+  "version": "1.0.0",
+  "description": "Cordova plugin to prepare app for Android TV",
+  "cordova": {
+    "id": "cordova-plugin-rmpandroidtv",
+    "platforms": [
+      "android"
+    ]
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "1.0.0": {
+        "cordova-android": ">=9.0.0"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radiantmediaplayer/cordova-plugin-rmpandroidtv.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova",
+    "android",
+    "tv",
+    "androidtv",
+    "html5",
+    "video"
+  ],
+  "author": "Radiant Media Player <support@radiantmediaplayer.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/radiantmediaplayer/cordova-plugin-rmpandroidtv/issues"
+  },
+  "homepage": "https://github.com/radiantmediaplayer/cordova-plugin-rmpandroidtv"
+}
