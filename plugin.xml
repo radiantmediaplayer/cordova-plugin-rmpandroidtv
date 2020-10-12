@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-rmpandroidtv</name>
     <description>Cordova plugin to prepare app for Android TV</description>
-    <author>Radiant Media Player &lt;support@radiantmediaplayer.com&gt;</author>
+    <author email="support@radiantmediaplayer.com" href="https://www.radiantmediaplayer.com/">
+Radiant Media Player
+    </author>
     <keywords>cordova,cordova-android,android,tv,androidtv,html5,video</keywords>
     <license>MIT</license>
     <engines>
@@ -25,7 +27,7 @@
             <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
         </config-file>
         <config-file parent="/manifest" target="AndroidManifest.xml">
-            <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="28" />
+            <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28" />
         </config-file>
         <hook type="after_prepare" src="www/rmpandroidtv.js" />
     </platform>

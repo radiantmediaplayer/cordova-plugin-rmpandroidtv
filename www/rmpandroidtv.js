@@ -57,8 +57,10 @@ const _copyBanner = function (context) {
     fs.mkdirSync(destinationPathToBanner);
   }
   fs.copyFile(originPathToBanner + 'banner.png', destinationPathToBanner + 'banner.png', (err) => {
-    if (err) throw err;
-    console.log('source.txt was copied to destination.txt');
+    if (err) {
+      throw new Error(err);
+    };
+    console.log(originPathToBanner + 'banner.png was copied to' + destinationPathToBanner + 'banner.png');
   });
 };
 
@@ -72,8 +74,7 @@ module.exports = function (context) {
   _copyBanner(context);
   fs.writeFile(config.activityPath, template, 'utf8', function (err) {
     if (err) {
-      console.log(err);
-      throw new Error('Unable to write java code');
+      throw new Error(err);
     }
     _updateManifest(context);
   });
