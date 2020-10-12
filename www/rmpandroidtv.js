@@ -59,7 +59,7 @@ const _copyBanner = function (context) {
   fs.copyFile(originPathToBanner + 'banner.png', destinationPathToBanner + 'banner.png', (err) => {
     if (err) {
       throw new Error(err);
-    };
+    }
     console.log(originPathToBanner + 'banner.png was copied to' + destinationPathToBanner + 'banner.png');
   });
 };
