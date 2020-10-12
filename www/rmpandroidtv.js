@@ -8,17 +8,16 @@ const _getConfig = function (context) {
   const projectRoot = context.opts.projectRoot;
   const config = new ConfigParser(path.join(projectRoot, 'config.xml'));
   const packageName = config.packageName();
-  const activityName = config.android_activityName() || 'MainActivity';
   const packagePath = packageName.replace(/\./g, path.sep);
-  const activityPath = path.join(projectRoot, 'platforms/android/app/src/main/java', packagePath, activityName + '.java');
-  return { packageName, activityPath, activityName };
+  const activityPath = path.join(projectRoot, 'platforms/android/app/src/main/java', packagePath, 'MainActivity.java');
+  return { packageName, activityPath };
 };
 
 const _getTemplate = function (context, config) {
-  const templatePath = path.join(context.opts.plugin.dir, 'src/android', 'rmpandroidtv.java');
+  const templatePath = path.join(context.opts.plugin.dir, 'src/android/rmpandroidtv.java');
   return fs.readFileSync(templatePath, 'utf8')
     .replace(/__ID__/g, config.packageName)
-    .replace(/__ACTIVITY__/g, config.activityName);
+    .replace(/__ACTIVITY__/g, 'MainActivity');
 };
 
 const _updateManifest = function (context) {
@@ -49,6 +48,20 @@ const _updateManifest = function (context) {
   }
 };
 
+const _copyBanner = function (context) {
+  const projectRoot = context.opts.projectRoot;
+  const originPathToBanner = path.join(projectRoot, 'www/img/');
+  const destinationPathToBanner = path.join(projectRoot, 'platforms/android/app/src/main/res/drawable/');
+  // copy banner 
+  if (!fs.existsSync(destinationPathToBanner)) {
+    fs.mkdirSync(destinationPathToBanner);
+  }
+  fs.copyFile(originPathToBanner + 'banner.png', destinationPathToBanner + 'banner.png', (err) => {
+    if (err) throw err;
+    console.log('source.txt was copied to destination.txt');
+  });
+};
+
 module.exports = function (context) {
   // make sure android platform is part of build
   if (!context.opts.platforms.includes('android')) {
@@ -56,7 +69,7 @@ module.exports = function (context) {
   }
   const config = _getConfig(context);
   const template = _getTemplate(context, config);
-  console.log('writeFile: ' + config.activityPath);
+  _copyBanner(context);
   fs.writeFile(config.activityPath, template, 'utf8', function (err) {
     if (err) {
       console.log(err);
