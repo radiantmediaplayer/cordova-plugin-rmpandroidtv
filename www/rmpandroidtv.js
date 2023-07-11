@@ -31,13 +31,13 @@ const _updateManifest = function (context) {
         throw new Error('Unable to find AndroidManifest.xml: ' + err);
       }
       if (!/<application android:banner="@drawable\/banner"/.test(data)) {
-        data = data.replace(/<application/, '<application android:banner="@drawable/banner" android:isGame="false" ');
+        data = data.replace(/<application/, '<application android:banner="@drawable/banner" ');
       }
       if (!/<activity android:screenOrientation="landscape"/.test(data)) {
         data = data.replace(/<activity/, '<activity android:screenOrientation="landscape" ');
       }
       data = data.replace(/android:configChanges="\D+?"/, 'android:configChanges="keyboard|keyboardHidden|navigation"');
-      data = data.replace(/android:theme="\D+?"/, 'android:theme="@style/Theme.Leanback"');
+      data = data.replace(/android:theme="\D+?"/, 'android:theme="@style/Theme.AppCompat.NoActionBar"');
       fs.writeFile(manifestFile, data, 'utf8', function (err) {
         console.log('wrote AndroidManifest.xml');
         if (err) {

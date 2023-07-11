@@ -13,8 +13,6 @@
         <engine name="cordova" version=">=12.0.0" />
     </engines>
     <platform name="android">
-        <framework src="androidx.leanback:leanback:1.0.0" />
-        <framework src="androidx.leanback:leanback-preference:1.0.0" />
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="rmpandroidtv">
                 <param name="android-package" value="com.radiantmediaplayer.rmpandroidtv" />
@@ -24,7 +22,6 @@
             <uses-feature android:name="android.hardware.microphone" android:required="false" />
             <uses-feature android:name="android.software.leanback" android:required="true" />
             <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-            <uses-feature android:name="android.hardware.gamepad" android:required="false" />
         </config-file>
         <config-file parent="/manifest/application/activity/intent-filter"
             target="AndroidManifest.xml">
