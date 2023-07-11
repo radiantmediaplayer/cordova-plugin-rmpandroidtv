@@ -13,7 +13,8 @@
         <engine name="cordova" version=">=12.0.0" />
     </engines>
     <platform name="android">
-        <framework src="build.gradle" custom="true" type="gradleReference" />
+        <framework src="androidx.leanback:leanback:1.0.0" />
+        <framework src="androidx.leanback:leanback-preference:1.0.0" />
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="rmpandroidtv">
                 <param name="android-package" value="com.radiantmediaplayer.rmpandroidtv" />
