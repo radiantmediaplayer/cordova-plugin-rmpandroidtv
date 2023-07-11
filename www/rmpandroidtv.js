@@ -37,7 +37,7 @@ const _updateManifest = function (context) {
         data = data.replace(/<activity/, '<activity android:screenOrientation="landscape" ');
       }
       data = data.replace(/android:configChanges="\D+?"/, 'android:configChanges="keyboard|keyboardHidden|navigation"');
-      data = data.replace(/android:theme="\D+?"/, 'android:theme="@android:style/Theme.NoTitleBar"');
+      data = data.replace(/android:theme="\D+?"/, 'android:theme="@style/Theme.Leanback"');
       fs.writeFile(manifestFile, data, 'utf8', function (err) {
         console.log('wrote AndroidManifest.xml');
         if (err) {
